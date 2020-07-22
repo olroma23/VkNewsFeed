@@ -13,17 +13,23 @@ import VK_ios_sdk
 class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
 
     var window: UIWindow?
-    var authService: AuthService!
+    var authService: AuthService?
+    
+    static func shared() -> AppDelegate? {
+        return UIApplication.shared.delegate as? AppDelegate
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         self.authService = AuthService()
-        authService.delegate = self
+        authService?.delegate = self
+        
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         VKSdk.processOpen(url, fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
+        return true
     }
 
     // MARK: UISceneSession Lifecycle
@@ -36,20 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
+        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWirthOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    func authServiceMustShow(_ viewController: UIViewController) {
-        
+    //MARK: AuthServiceDelegate
+    
+    func authServiceShouldShow(_ viewController: UIViewController!) {
+        UIApplication.shared.windows.first?.rootViewController?.present(viewController, animated: true, completion: nil)
+        print(#function)
     }
     
     func authServiceSignIn() {
-        
+        print(#function)
     }
     
     func authServiceSignInFailed() {
-        
+        print(#function)
     }
 
 

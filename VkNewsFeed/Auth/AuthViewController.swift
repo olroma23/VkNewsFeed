@@ -10,27 +10,15 @@ import UIKit
 
 class AuthViewController: UIViewController {
     
-    private var authService = AuthService()
+    private var authService: AuthService?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        authService = AppDelegate.shared()?.authService
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func LoginButton(_ sender: UIButton) {
-        authService.wakeUpSession()
+        authService?.wakeUpSession()
     }
     
     
