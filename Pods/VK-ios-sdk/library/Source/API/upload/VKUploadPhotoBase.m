@@ -94,17 +94,17 @@ extern inline BOOL VKStateTransitionIsValid(VKOperationState fromState, VKOperat
         NSData *imageData = nil;
         switch (_uploadRequest.imageParameters.imageType) {
             case VKImageTypeJpg:
-                imageData = UIImageJPEGRepresentation(_uploadRequest.image, _uploadRequest.imageParameters.jpegQuality);
+                imageData = UIImageJPEGRepresentation(self->_uploadRequest.image, _uploadRequest.imageParameters.jpegQuality);
                 break;
 
             case VKImageTypePng:
-                imageData = UIImagePNGRepresentation(_uploadRequest.image);
+                imageData = UIImagePNGRepresentation(self->_uploadRequest.image);
                 break;
 
             default:
                 break;
         }
-        _uploadRequest.image = nil;
+        self->_uploadRequest.image = nil;
         VKRequest *postFileRequest = [VKRequest photoRequestWithPostUrl:response.json[@"upload_url"]
                                                              withPhotos:@[[VKUploadImage uploadImageWithData:imageData andParams:_uploadRequest.imageParameters]]];
         postFileRequest.progressBlock = _uploadRequest.progressBlock;

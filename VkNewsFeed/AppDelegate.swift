@@ -50,11 +50,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AuthServiceDelegate {
     
     func authServiceShouldShow(_ viewController: UIViewController!) {
         UIApplication.shared.windows.first?.rootViewController?.present(viewController, animated: true, completion: nil)
+//        UIApplication.shared.windows.last?.rootViewController?.present(viewController, animated: true, completion: nil)
         print(#function)
     }
     
     func authServiceSignIn() {
         print(#function)
+        let feedVC = UIStoryboard(name: "FeedViewController", bundle: nil).instantiateInitialViewController() as! FeedViewController
+        let navVC = UINavigationController(rootViewController: feedVC)
+        UIApplication.shared.windows.first?.rootViewController = navVC
+        
     }
     
     func authServiceSignInFailed() {

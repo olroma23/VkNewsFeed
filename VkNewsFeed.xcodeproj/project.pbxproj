@@ -11,6 +11,8 @@
 		EC88BB9C24C6FBAC0052EE1F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88BB9B24C6FBAC0052EE1F /* AuthService.swift */; };
 		EC88BB9F24C706860052EE1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC88BB9E24C706860052EE1F /* AuthViewController.swift */; };
 		EC88BBA124C706B40052EE1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC88BBA024C706B40052EE1F /* Main.storyboard */; };
+		EC9897FC24C8BFCF00BA3D52 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9897FB24C8BFCF00BA3D52 /* FeedViewController.swift */; };
+		EC9897FE24C8BFE100BA3D52 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC9897FD24C8BFE100BA3D52 /* FeedViewController.storyboard */; };
 		ECBE484B24C6318400851417 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE484A24C6318400851417 /* AppDelegate.swift */; };
 		ECBE484D24C6318400851417 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBE484C24C6318400851417 /* SceneDelegate.swift */; };
 		ECBE485424C6318700851417 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECBE485324C6318700851417 /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 		EC88BB9B24C6FBAC0052EE1F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EC88BB9E24C706860052EE1F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		EC88BBA024C706B40052EE1F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EC9897FB24C8BFCF00BA3D52 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		EC9897FD24C8BFE100BA3D52 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		ECBE484724C6318400851417 /* VkNewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VkNewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECBE484A24C6318400851417 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECBE484C24C6318400851417 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 				ECBE485524C6318700851417 /* LaunchScreen.storyboard */,
 				ECBE485824C6318700851417 /* Info.plist */,
 				EC88BBA224C706BB0052EE1F /* Auth */,
+				EC9897FB24C8BFCF00BA3D52 /* FeedViewController.swift */,
+				EC9897FD24C8BFE100BA3D52 /* FeedViewController.storyboard */,
 			);
 			path = VkNewsFeed;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 				ECBE485724C6318700851417 /* LaunchScreen.storyboard in Resources */,
 				EC88BBA124C706B40052EE1F /* Main.storyboard in Resources */,
 				ECBE485424C6318700851417 /* Assets.xcassets in Resources */,
+				EC9897FE24C8BFE100BA3D52 /* FeedViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +234,7 @@
 			files = (
 				EC88BB9F24C706860052EE1F /* AuthViewController.swift in Sources */,
 				ECBE484B24C6318400851417 /* AppDelegate.swift in Sources */,
+				EC9897FC24C8BFCF00BA3D52 /* FeedViewController.swift in Sources */,
 				ECBE484D24C6318400851417 /* SceneDelegate.swift in Sources */,
 				EC88BB9C24C6FBAC0052EE1F /* AuthService.swift in Sources */,
 			);

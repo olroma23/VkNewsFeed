@@ -9,7 +9,7 @@
 import Foundation
 import VK_ios_sdk
 
-protocol AuthServiceDelegate {
+protocol AuthServiceDelegate: class {
     func authServiceShouldShow(_ viewController: UIViewController!)
     func authServiceSignIn()
     func authServiceSignInFailed()
@@ -20,7 +20,7 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     private let appID = "7545078"
     private let vkSdk: VKSdk
     
-    var delegate: AuthServiceDelegate?
+    weak var delegate: AuthServiceDelegate?
     
     override init() {
         vkSdk = VKSdk.initialize(withAppId: appID)
@@ -32,16 +32,16 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func wakeUpSession() {
         let scope = ["offline"]
-        VKSdk.wakeUpSession(scope) { (state, error) in
+        VKSdk.wakeUpSession(scope) { [delegate] (state, error) in
             if state == VKAuthorizationState.authorized {
                 print("VKAuthorizationState.authorized")
-                self.delegate?.authServiceSignIn()
+                delegate?.authServiceSignIn()
             } else if state == VKAuthorizationState.initialized {
                 print("VKAuthorizationState.initialized")
                 VKSdk.authorize(scope)
             } else {
                 print("auth problems, state \(state) error \(String(describing: error?.localizedDescription))")
-                self.delegate?.authServiceSignInFailed()
+                delegate?.authServiceSignInFailed()
             }
         }
     }
@@ -50,7 +50,10 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         print(#function)
-        delegate?.authServiceSignIn()
+        print(result.error!)
+        if result.token != nil {
+            delegate?.authServiceSignIn()
+        }
     }
     
     func vkSdkUserAuthorizationFailed() {
@@ -58,7 +61,7 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     }
     
     // MARK: VkSdkUIDelegate
-
+    
     
     func vkSdkShouldPresent(_ controller: UIViewController!) {
         print(#function)
